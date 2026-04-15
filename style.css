@@ -1,3 +1,7 @@
+body {
+  background: black !important;
+}
+
 .slider {
   position: relative;
   height: 400px;
@@ -25,18 +29,15 @@
   top: 0;
   left: 0;
   width: 100%;
-  height: 100%;
+  height: 400px;
 
   display: flex;
   justify-content: center;
   align-items: center;
 
-  z-index: 10; /* 슬라이드보다 위 */
-  pointer-events: none; /* 클릭 방해 방지 */
+  z-index: 999;   /* 🔥 무조건 위로 */
 }
 
-/* 로고 이미지 */
 .logo-overlay img {
   width: 180px;
-  height: auto;
 }
