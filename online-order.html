@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Online Order</title>
+
+<style>
+body { margin:0; font-family:Arial; }
+.header { background:black; color:white; padding:15px; text-align:center; }
+.container { display:flex; }
+
+.categories { width:20%; background:#f4f4f4; }
+.categories div { padding:15px; cursor:pointer; }
+
+.menu { width:50%; padding:20px; }
+.item { border-bottom:1px solid #ddd; padding:15px 0; }
+
+.cart { width:30%; background:#fafafa; padding:20px; }
+
+button {
+  background:#d62828;
+  color:white;
+  border:none;
+  padding:8px 15px;
+  cursor:pointer;
+}
+</style>
+</head>
+
+<body>
+
+<div class="header">
+  <h1>Ramen Mura</h1>
+</div>
+
+<div class="container">
+  <div class="categories"></div>
+  <div class="menu" id="menu"></div>
+  <div class="cart" id="cart"><h2>Your Order</h2></div>
+</div>
+
+<script>
+let menus = {};
+let cart = [];
+
+// 메뉴 불러오기
+async function loadMenus() {
+  const res = await fetch("YOUR_GOOGLE_SCRIPT_URL");
+  menus = await res.json();
+
+  renderCategories();
+  loadMenu(Object.keys(menus)[0]);
+}
+
+// 카테고리 표시
+function renderCategories() {
+  const div = document.querySelector(".categories");
+  div.innerHTML = "";
+
+  Object.keys(menus).forEach(cat => {
+    div.innerHTML += `<div onclick="loadMenu('${cat}')">${cat}</div>`;
+  });
+}
+
+// 메뉴 표시
+function loadMenu(category) {
+  const menuDiv = document.getElementById("menu");
+  menuDiv.innerHTML = "";
+
+  menus[category].forEach(item => {
+    menuDiv.innerHTML += `
+      <div class="item">
+        <h3>${item.name}</h3>
+        <p>$${item.price}</p>
+        <button onclick="addToCart('${item.name}', ${item.price})">Add</button>
+      </div>
+    `;
+  });
+}
+
+// 장바구니
+function addToCart(name, price) {
+  cart.push({ name, price });
+  renderCart();
+}
+
+function renderCart() {
+  const cartDiv = document.getElementById("cart");
+  let total = 0;
+
+  cartDiv.innerHTML = "<h2>Your Order</h2>";
+
+  cart.forEach(item => {
+    total += item.price;
+    cartDiv.innerHTML += `<p>${item.name} - $${item.price}</p>`;
+  });
+
+  cartDiv.innerHTML += `<h3>Total: $${total}</h3>`;
+  cartDiv.innerHTML += `<button onclick="placeOrder()">Place Order</button>`;
+}
+
+// 주문 보내기
+async function placeOrder() {
+  let total = cart.reduce((sum, item) => sum + item.price, 0);
+
+  await fetch("YOUR_GOOGLE_SCRIPT_URL", {
+    method: "POST",
+    body: JSON.stringify({ cart, total })
+  });
+
+  alert("Order placed!");
+  cart = [];
+  renderCart();
+}
+
+loadMenus();
+</script>
+
+</body>
+</html>
