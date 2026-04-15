@@ -1,4 +1,7 @@
-body { font-family: Arial; margin:0; }
+<style>
+body { margin:0; font-family: Arial; }
+
+/* 헤더 */
 header {
   background:#111;
   color:#fff;
@@ -6,20 +9,35 @@ header {
   display:flex;
   justify-content:space-between;
 }
-nav a { color:white; margin:10px; text-decoration:none; }
+nav a { color:#fff; margin:0 10px; text-decoration:none; }
 
-.hero {
-  height:300px;
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-  align-items:center;
-  background:#333;
-  color:white;
+/* 🔥 슬라이드 */
+.slider {
+  position:relative;
+  height:400px;
+  overflow:hidden;
 }
+.slide {
+  position:absolute;
+  width:100%;
+  height:100%;
+  background-size:cover;
+  background-position:center;
+  opacity:0;
+  transition:1s;
+}
+.slide.active { opacity:1; }
 
-button {
-  padding:10px 20px;
-  font-size:16px;
-  margin-top:10px;
+/* 🔥 갤러리 */
+.gallery {
+  padding:40px;
+  display:grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap:15px;
 }
+.gallery img {
+  width:100%;
+  height:200px;
+  object-fit:cover;
+}
+</style>
