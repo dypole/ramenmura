@@ -1,54 +1,77 @@
+/* ===== 기본 ===== */
 body {
-  background: black !important;
+  margin: 0;
+  font-family: Arial, sans-serif;
 }
 
+/* ===== 헤더 ===== */
+header {
+  background: #111;
+  color: #fff;
+  padding: 15px 20px;
+  display: flex;
+  justify-content: space-between;
+}
+
+header a {
+  color: white;
+  margin-left: 15px;
+  text-decoration: none;
+}
+
+/* ===== 슬라이드 ===== */
 .slider {
   position: relative;
-  height: 400px;
+  height: 450px;
   overflow: hidden;
 }
 
-/* 슬라이드 */
 .slide {
   position: absolute;
   width: 100%;
   height: 100%;
   background-size: cover;
   background-position: center;
+
   opacity: 0;
-  transition: 1s;
+  transition: opacity 1s ease;
 }
-.slider::after {
-  content:"";
-  position:absolute;
-  top:0; left:0;
-  width:100%; height:100%;
-  background:rgba(0,0,0,0.4);
-}
+
 .slide.active {
   opacity: 1;
 }
 
-/* 🔥 로고 오버레이 (핵심) */
+/* ===== 로고 오버레이 ===== */
 .logo-overlay {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
-  height: 400px;
+  height: 100%;
 
   display: flex;
   justify-content: center;
   align-items: center;
 
-  z-index: 999;   /* 🔥 무조건 위로 */
+  z-index: 10;
+  pointer-events: none;
 }
 
 .logo-overlay img {
-  animation: fadeIn 1.5s ease-in-out;
+  width: 180px;
 }
 
-@keyframes fadeIn {
-  from { opacity:0; transform:translateY(-10px); }
-  to { opacity:1; transform:translateY(0); }
+/* ===== 갤러리 (4x2) ===== */
+.gallery {
+  padding: 40px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 15px;
+}
+
+.gallery img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 8px;
 }
