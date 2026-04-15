@@ -26,7 +26,21 @@ function doGet() {
   const sheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName("Menu");
   const data = sheet.getDataRange().getValues();
 
-  let result = {};
+  /*===let result = {}; ====*/
+  let menus = {
+  Ramen: [
+    { name: "Tonkotsu Ramen", price: 14 },
+    { name: "Spicy Miso Ramen", price: 15 }
+  ],
+  Sushi: [
+    { name: "California Roll", price: 9 },
+    { name: "Salmon Nigiri", price: 7 }
+  ],
+  Drinks: [
+    { name: "Coke", price: 2 },
+    { name: "Green Tea", price: 3 }
+  ]
+};
 
   for (let i = 1; i < data.length; i++) {
     let category = data[i][0];
