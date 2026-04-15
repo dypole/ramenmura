@@ -1,24 +1,3 @@
-<style>
-body { margin:0; font-family: Arial; }
-
-/* 헤더 */
-header {
-  background:#111;
-  color:#fff;
-  padding:15px;
-  display:flex;
-  justify-content:space-between;
-}
-nav a { color:#fff; margin:0 10px; text-decoration:none; }
-
-/* 🔥 슬라이드 */
-.slider {
-  position: relative;
-  height: 400px;
-  overflow: hidden;
-}
-
-/* 슬라이드 */
 .slider {
   position: relative;
   height: 400px;
@@ -61,17 +40,3 @@ nav a { color:#fff; margin:0 10px; text-decoration:none; }
   width: 180px;
   height: auto;
 }
-
-/* 🔥 갤러리 */
-.gallery {
-  padding:40px;
-  display:grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap:15px;
-}
-.gallery img {
-  width:100%;
-  height:200px;
-  object-fit:cover;
-}
-</style>
