@@ -79,7 +79,7 @@ header a {
 
 @media (max-width: 768px) {
   .slider {
-    height: 250px;
+    height: 200px;
   }
 
   .logo-overlay img {
