@@ -5,38 +5,30 @@
 }
 
 /* 슬라이드 */
-.slide {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  background-size: cover;
-  background-position: center;
-  opacity: 0;
-  transition: 1s;
+.slider {
+  position: relative;   /* 🔥 이게 없으면 100% 실패 */
+  height: 400px;
+  overflow: hidden;
 }
 
 .slide.active {
   opacity: 1;
 }
 
-/* 🔥 로고 오버레이 (핵심) */
 .logo-overlay {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
-  height: 100%;
+  height: 400px;
 
   display: flex;
   justify-content: center;
   align-items: center;
 
-  z-index: 10; /* 슬라이드보다 위 */
-  pointer-events: none; /* 클릭 방해 방지 */
+  z-index: 999;   /* 🔥 무조건 위로 */
 }
 
-/* 로고 이미지 */
 .logo-overlay img {
   width: 180px;
-  height: auto;
 }
