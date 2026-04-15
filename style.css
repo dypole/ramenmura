@@ -1,9 +1,21 @@
 /* ===== 기본 ===== */
 body {
   margin: 0;
-  font-family: Arial, sans-serif;
-  font-size: 16px;
-  background: #111;
+  font-family: Arial;
+}
+
+/* 버튼 */
+.order-section {
+  text-align: center;
+  margin: 40px 0;
+}
+
+.order-btn {
+  padding: 15px 40px;
+  background: #d62828;
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
 }
 
 @media (max-width: 768px) {
