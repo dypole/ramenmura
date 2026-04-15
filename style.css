@@ -19,6 +19,13 @@ nav a { color:#fff; margin:0 10px; text-decoration:none; }
 }
 
 /* 슬라이드 */
+.slider {
+  position: relative;
+  height: 400px;
+  overflow: hidden;
+}
+
+/* 슬라이드 */
 .slide {
   position: absolute;
   width: 100%;
@@ -28,21 +35,30 @@ nav a { color:#fff; margin:0 10px; text-decoration:none; }
   opacity: 0;
   transition: 1s;
 }
+
 .slide.active {
   opacity: 1;
 }
 
-/* 🔥 로고 중앙 정렬 */
+/* 🔥 로고 오버레이 (핵심) */
 .logo-overlay {
   position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 10;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  z-index: 10; /* 슬라이드보다 위 */
+  pointer-events: none; /* 클릭 방해 방지 */
 }
 
+/* 로고 이미지 */
 .logo-overlay img {
-  width: 180px;   /* 원하는 크기로 조절 */
+  width: 180px;
   height: auto;
 }
 
