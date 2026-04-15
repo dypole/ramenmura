@@ -4,55 +4,13 @@
 <meta charset="UTF-8">
 <title>Ramen Shop</title>
 
-<style>
-body { margin:0; font-family: Arial; }
-
-/* 헤더 */
-header {
-  background:#111;
-  color:#fff;
-  padding:15px;
-  display:flex;
-  justify-content:space-between;
-}
-nav a { color:#fff; margin:0 10px; text-decoration:none; }
-
-/* 🔥 슬라이드 */
-.slider {
-  position:relative;
-  height:400px;
-  overflow:hidden;
-}
-.slide {
-  position:absolute;
-  width:100%;
-  height:100%;
-  background-size:cover;
-  background-position:center;
-  opacity:0;
-  transition:1s;
-}
-.slide.active { opacity:1; }
-
-/* 🔥 갤러리 */
-.gallery {
-  padding:40px;
-  display:grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap:15px;
-}
-.gallery img {
-  width:100%;
-  height:200px;
-  object-fit:cover;
-}
-</style>
+<link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
 <header>
-  <h1>🍜 Ramen Shop</h1>
+  <div>🍜 Ramen Shop</div>
   <nav>
     <a href="#">Home</a>
     <a href="menu.html">Menu</a>
@@ -60,49 +18,24 @@ nav a { color:#fff; margin:0 10px; text-decoration:none; }
   </nav>
 </header>
 
-
-<!-- 🔥 슬라이드 -->
+<!-- 슬라이드 -->
 <div class="slider">
-  <!-- 슬라이드 -->
-  <div class="slide active" style="background-image:url('https://raw.githubusercontent.com/dypole/ramenmura/refs/heads/main/main1.jpg');"></div>
-  <div class="slide" style="background-image:url('https://raw.githubusercontent.com/dypole/ramenmura/refs/heads/main/main2.jpg');"></div>
-  <div class="slide" style="background-image:url('https://raw.githubusercontent.com/dypole/ramenmura/refs/heads/main/main3.jpg');"></div>
 
-  <!-- 🔥 로고 오버레이 -->
+  <div class="slide active" style="background-image:url('img1.jpg');"></div>
+  <div class="slide" style="background-image:url('img2.jpg');"></div>
+  <div class="slide" style="background-image:url('img3.jpg');"></div>
+
+  <!-- 로고 -->
   <div class="logo-overlay">
     <img src="logo.png" alt="logo">
   </div>
+
 </div>
 
-<!-- 🔥 갤러리 -->
+<!-- 갤러리 -->
 <section class="gallery" id="gallery"></section>
 
-<script>
-// 🔄 슬라이드 기능
-let slides = document.querySelectorAll(".slide");
-let index = 0;
-
-setInterval(() => {
-  slides[index].classList.remove("active");
-  index = (index + 1) % slides.length;
-  slides[index].classList.add("active");
-}, 3000);
-
-// 🖼️ 갤러리 로드 (admin에서 추가된 이미지)
-function loadGallery() {
-  let images = JSON.parse(localStorage.getItem("gallery")) || [];
-  const container = document.getElementById("gallery");
-
-  // 최대 8개만 표시 (4x2)
-  images.slice(0, 8).forEach(img => {
-    const el = document.createElement("img");
-    el.src = img;
-    container.appendChild(el);
-  });
-}
-
-loadGallery();
-</script>
+<script src="script.js"></script>
 
 </body>
 </html>
