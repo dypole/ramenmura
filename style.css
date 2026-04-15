@@ -38,7 +38,7 @@ header a {
 /* ===== 슬라이드 ===== */
 .slider {
   position: relative;
-  height: 450px;
+  height: 550px;
   overflow: hidden;
 }
 
@@ -79,7 +79,7 @@ header a {
 
 @media (max-width: 768px) {
   .slider {
-    height: 250px;
+    height: 200px;
   }
 
   .logo-overlay img {
