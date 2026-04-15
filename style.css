@@ -1,25 +1,42 @@
-body { font-family: Arial; margin:0; }
-header {
-  background:#111;
-  color:#fff;
-  padding:15px;
-  display:flex;
-  justify-content:space-between;
-}
-nav a { color:white; margin:10px; text-decoration:none; }
-
-.hero {
-  height:300px;
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-  align-items:center;
-  background:#333;
-  color:white;
+.slider {
+  position: relative;
+  height: 400px;
+  overflow: hidden;
 }
 
-button {
-  padding:10px 20px;
-  font-size:16px;
-  margin-top:10px;
+/* 슬라이드 */
+.slide {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  opacity: 0;
+  transition: 1s;
+}
+
+.slide.active {
+  opacity: 1;
+}
+
+/* 🔥 로고 오버레이 (핵심) */
+.logo-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  z-index: 10; /* 슬라이드보다 위 */
+  pointer-events: none; /* 클릭 방해 방지 */
+}
+
+/* 로고 이미지 */
+.logo-overlay img {
+  width: 180px;
+  height: auto;
 }
