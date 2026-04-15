@@ -66,6 +66,14 @@ header a {
   to { opacity:1; transform:translateY(0); }
 }
 
+.slider::after {
+  content:"";
+  position:absolute;
+  top:0; left:0;
+  width:100%; height:100%;
+  background:rgba(0,0,0,0.4);
+}
+
 /* ===== 갤러리 (4x2) ===== */
 .gallery {
   padding: 40px;
