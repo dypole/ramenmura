@@ -4,7 +4,7 @@ body { margin:0; font-family: Arial; }
 /* 헤더 */
 header {
   background:#111;
-  color:#000;
+  color:#fff;
   padding:15px;
   display:flex;
   justify-content:space-between;
