@@ -77,9 +77,9 @@ header a {
   animation: fadeIn 1.5s ease-in-out;
 }
 
-@media (max-width: 468px) {
+@media (max-width: 768px) {
   .slider {
-    height: 400px;
+    height: 250px;
   }
 
   .logo-overlay img {
