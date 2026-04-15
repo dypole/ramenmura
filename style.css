@@ -77,6 +77,16 @@ header a {
   animation: fadeIn 1.5s ease-in-out;
 }
 
+@media (max-width: 768px) {
+  .slider {
+    height: 250px;
+  }
+
+  .logo-overlay img {
+    width: 120px;
+  }
+}
+
 @keyframes fadeIn {
   from { opacity:0; transform:translateY(-10px); }
   to { opacity:1; transform:translateY(0); }
